@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class AStarSearchAlgo implements IPuzzleAlgo {
+public class AStarPuzzleAlgo implements IPuzzleAlgo {
 
 	@Override
 	public Node execute(Puzzle model) {
@@ -17,7 +17,10 @@ public class AStarSearchAlgo implements IPuzzleAlgo {
 		model.getInitialState().setH(model.computeH2(model.getInitialState()));
 		while (!frontier.isEmpty()) {
 			Node current = frontier.poll();
-			if (current.getH() == 0) return current;
+			if (current.getH() == 0) {
+				System.out.println(current.getG());
+				return current;
+			}
 			List<Node> listNodeState = model.getSuccessors(current);
 			for (Node node : listNodeState) {
 				if (!frontier.contains(node) && !exployed.contains(node)) {

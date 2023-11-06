@@ -19,10 +19,13 @@ public class PuzzleUtils {
 	};
 	// Compare 2 nodes by F values
 	public static Comparator<Node> HeuristicComparatorByF = new Comparator<Node>() {
-
 		@Override
 		public int compare(Node a, Node b) {
-			return a.getF() - b.getF();
+			if (Integer.compare(a.getF(), b.getF()) == 0) {
+				return Integer.compare(b.getG(), a.getG());
+			}
+			
+			return Integer.compare(a.getF(), b.getF());
 		}
 	};
 }

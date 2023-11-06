@@ -35,9 +35,16 @@ public class TestNode {
 		// for (Node child : children) {
 		// System.out.println(child.getH()+" "+p.computeH(child) );
 		// }
-		IPuzzleAlgo aStar = new AStarSearchAlgo();
-		System.out.println(aStar.execute(p));
-		IPuzzleAlgo greedy = new GreedySearchAlgo();
-//		System.out.println(greedy.execute(p));
+//		long timeStart = System.currentTimeMillis();
+//		IPuzzleAlgo aStar = new AStarPuzzleAlgo();
+//		System.out.println(aStar.execute(p));
+//		long timeEnd = System.currentTimeMillis();
+//		System.out.println("Time: " + (timeEnd - timeStart));
+		
+//		IPuzzleAlgo dfs = new DFSPuzzleAlgo();
+//		System.out.println(dfs.execute(p));
+		
+		IPuzzleAlgo bfs = new BFSPuzzleAlgo();
+		System.out.println(bfs.execute(p));
 	}
 }
